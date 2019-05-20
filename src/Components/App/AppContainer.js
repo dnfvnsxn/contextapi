@@ -11,6 +11,7 @@ class AppContainer extends Component {
                 return newState;
             });
         };
+        // provider에 포함시키고 싶은 함수는 constructor에 있어야 함 
         this._seeNotification = id => {
             this.setState(currentState => {
                 return {

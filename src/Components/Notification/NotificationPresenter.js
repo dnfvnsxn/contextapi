@@ -29,14 +29,14 @@ const Button = styled.button`
   font-size: 16px;
   cursor: pointer;
   background-color: ${props => {
-    if (props.seen) {
-      return "#7f8c8d";
-    } else if (props.success) {
-      return "#2ecc71";
-    } else if (props.danger) {
-      return "#e74c3c";
-    }
-  }};
+        if (props.seen) {
+            return "#7f8c8d";
+        } else if (props.success) {
+            return "#2ecc71";
+        } else if (props.danger) {
+            return "#e74c3c";
+        }
+    }};
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease-out;
   &:hover {
@@ -53,41 +53,41 @@ const Button = styled.button`
 `;
 
 const NotificationPresenter = ({ id, text, seen }) => (
-  <Notification seen={seen}>
-    <Flex alignCenter justifyBetween>
-      <Title>{text}</Title>
-      <FlexItem>
-        <Fragment>
-          <Store.Consumer>
-            {store => (
-              <Fragment>
-                <Button
-                  success
-                  seen={seen}
-                  onClick={() => store.seeNotification(id)}
-                >
-                  <FontAwesome name="check" />
-                </Button>
-                <Button
-                  danger
-                  seen={seen}
-                  onClick={() => store.deleteNotification(id)}
-                >
-                  <FontAwesome name="times" />
-                </Button>
-              </Fragment>
-            )}
-          </Store.Consumer>
-        </Fragment>
-      </FlexItem>
-    </Flex>
-  </Notification>
+    <Notification seen={seen}>
+        <Flex alignCenter justifyBetween>
+            <Title>{text}</Title>
+            <FlexItem>
+                <Fragment>
+                    <Store.Consumer>
+                        {store => (
+                            <Fragment>
+                                <Button
+                                    success
+                                    seen={seen}
+                                    onClick={() => store.seeNotification(id)}
+                                >
+                                    <FontAwesome name="check" />
+                                </Button>
+                                <Button
+                                    danger
+                                    seen={seen}
+                                    onClick={() => store.deleteNotification(id)}
+                                >
+                                    <FontAwesome name="times" />
+                                </Button>
+                            </Fragment>
+                        )}
+                    </Store.Consumer>
+                </Fragment>
+            </FlexItem>
+        </Flex>
+    </Notification>
 );
 
 NotificationPresenter.propTypes = {
-  text: PropTypes.string.isRequired,
-  seen: PropTypes.bool.isRequired,
-  id: PropTypes.number.isRequired
+    text: PropTypes.string.isRequired,
+    seen: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired
 };
 
 export default NotificationPresenter;
